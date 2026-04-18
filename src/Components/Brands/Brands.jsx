@@ -21,7 +21,7 @@ export default function Brands() {
       </HelmetProvider>
 
       {isLoading ? (
-        <div className="w-full py-5 flex justify-center">
+        <div className="w-full h-110 py-5 flex justify-center items-center">
           <i className="fa-solid fa-spinner fa-spin-pulse text-main fa-2xl "></i>{" "}
         </div>
       ) : (

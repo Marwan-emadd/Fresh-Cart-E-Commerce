@@ -18,9 +18,9 @@ export default function Navbar() {
 
   return (
     <nav className="bg-[#eeeeee] sticky top-0 z-50 shadow-sm border-b border-gray-200">
-      <div className="max-w-7xl h-18 mx-auto px-4 py-3 flex items-center justify-between gap-4">
-        <Link to="/" className="flex items-center max-w-30 md:max-w-55 ">
-          <img className="w-45" src={logo} alt="FreshCart Logo" />
+      <div className="max-w-7xl h-16 md:h-18 mx-auto px-4 py-3 flex items-center justify-between gap-2 md:gap-4">
+        <Link to="/" className="flex items-center max-w-24 md:max-w-55">
+          <img className="w-28 md:w-45" src={logo} alt="FreshCart Logo" />
         </Link>
 
         {userToken !== null && (
@@ -96,14 +96,14 @@ export default function Navbar() {
           </ul>
         )}
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           {userToken !== null ? (
             <>
               <Link
                 to="/Cart"
                 className="relative text-gray-600 hover:text-[#0aad0a] transition-colors"
               >
-                <i className="fa-solid fa-cart-shopping  md:fa-lg"></i>{" "}
+                <i className="fa-solid fa-cart-shopping md:fa-lg"></i>
                 {cartCount > 0 && (
                   <span className="absolute -top-2 -right-2 bg-[#0aad0a] text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
                     {cartCount}
@@ -113,24 +113,24 @@ export default function Navbar() {
 
               <button
                 onClick={handleLogout}
-                className="bg-[#0aad0a] text-white text-sm px-5 py-2 rounded-lg hover:bg-[#0aad0a] transition-colors duration-200 font-medium cursor-pointer"
+                className="bg-[#0aad0a] text-white text-xs md:text-sm px-3 md:px-5 py-2 rounded-lg hover:opacity-90 transition-all duration-200 font-medium cursor-pointer"
               >
-                <i className="fa-solid fa-sign-out-alt mr-2"></i>
-                Log Out
+                <i className="fa-solid fa-sign-out-alt mr-1 md:mr-2"></i>
+                <span className="hidden sm:inline">Log Out</span>
+                <span className="sm:hidden">Out</span>
               </button>
             </>
           ) : (
             <>
               <Link
                 to="/login"
-                className="w-20 md:w-20 text-sm font-medium text-gray-600 border border-gray-300 px-4 py-2 rounded-lg hover:border-[#0aad0a] hover:text-[#0aad0a] transition-colors duration-200"
+                className="text-xs md:text-sm font-medium text-gray-600 border border-gray-300 px-3 md:px-4 py-2 rounded-lg hover:border-[#0aad0a] hover:text-[#0aad0a] transition-colors duration-200"
               >
                 Sign In
               </Link>
-
               <Link
                 to="/register"
-                className="w-22 md:w-22 text-sm font-medium bg-[#0aad0a] text-white px-4 py-2 rounded-lg hover:bg-[#0aad0a] transition-colors duration-200"
+                className="text-xs md:text-sm font-medium bg-[#0aad0a] text-white px-3 md:px-4 py-2 rounded-lg hover:opacity-90 transition-all duration-200"
               >
                 Sign Up
               </Link>
@@ -139,24 +139,31 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Nav Links — scrollable with active indicator */}
       {userToken !== null && (
         <div className="md:hidden border-t border-gray-100 px-4 py-2 flex gap-5 text-sm font-medium text-gray-600 overflow-x-auto">
-          <Link className="hover:text-[#0aad0a] whitespace-nowrap" to="/">
+          <Link
+            className={`whitespace-nowrap py-1 ${location.pathname === "/" ? "text-[#0aad0a] border-b-2 border-[#0aad0a]" : "hover:text-[#0aad0a]"}`}
+            to="/"
+          >
             Home
           </Link>
           <Link
-            className="hover:text-[#0aad0a] whitespace-nowrap"
+            className={`whitespace-nowrap py-1 ${location.pathname === "/Products" ? "text-[#0aad0a] border-b-2 border-[#0aad0a]" : "hover:text-[#0aad0a]"}`}
             to="/Products"
           >
             Products
           </Link>
           <Link
-            className="hover:text-[#0aad0a] whitespace-nowrap"
+            className={`whitespace-nowrap py-1 ${location.pathname === "/Categories" ? "text-[#0aad0a] border-b-2 border-[#0aad0a]" : "hover:text-[#0aad0a]"}`}
             to="/Categories"
           >
             Categories
           </Link>
-          <Link className="hover:text-[#0aad0a] whitespace-nowrap" to="/Brands">
+          <Link
+            className={`whitespace-nowrap py-1 ${location.pathname === "/Brands" ? "text-[#0aad0a] border-b-2 border-[#0aad0a]" : "hover:text-[#0aad0a]"}`}
+            to="/Brands"
+          >
             Brands
           </Link>
         </div>

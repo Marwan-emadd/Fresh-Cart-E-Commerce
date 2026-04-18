@@ -24,8 +24,8 @@ export default function Cart() {
       </HelmetProvider>
 
       {isLoading ? (
-        <div className="w-full py-5 flex justify-center">
-          <i className="fa-solid fa-spinner fa-spin-pulse fa-2xl"></i>
+        <div className="w-full h-110 py-5 flex justify-center items-center">
+          <i className="fa-solid fa-spinner fa-spin-pulse fa-2xl text-main"></i>
         </div>
       ) : (
         <div className="w-[80%] bg-[#eeeeee] p-4 m-10 mx-auto border border-gray-300 rounded-xl shadow-xl">
