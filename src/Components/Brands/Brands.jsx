@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { ClipLoader } from "react-spinners";
 
 function getBrands() {
   return axios.get("https://ecommerce.routemisr.com/api/v1/brands");
@@ -22,7 +23,7 @@ export default function Brands() {
 
       {isLoading ? (
         <div className="w-full h-110 py-5 flex justify-center items-center">
-          <i className="fa-solid fa-spinner fa-spin-pulse text-main fa-2xl "></i>{" "}
+          <ClipLoader color="#0aad0a" size={50} />
         </div>
       ) : (
         <div className="max-w-7xl mx-auto px-5 py-2">

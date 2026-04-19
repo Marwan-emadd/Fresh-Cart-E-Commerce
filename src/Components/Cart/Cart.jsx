@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
 import { CartContext } from "../../Context/CartContext";
+import { ClipLoader } from "react-spinners";
 
 export default function Cart() {
   let { getLoggedUserCart, removeCartItem, updateCartCount } =
@@ -25,7 +26,7 @@ export default function Cart() {
 
       {isLoading ? (
         <div className="w-full h-110 py-5 flex justify-center items-center">
-          <i className="fa-solid fa-spinner fa-spin-pulse fa-2xl text-main"></i>
+          <ClipLoader color="#0aad0a" size={50} />
         </div>
       ) : (
         <div className="w-[80%] bg-[#eeeeee] p-4 m-10 mx-auto border border-gray-300 rounded-xl shadow-xl">
